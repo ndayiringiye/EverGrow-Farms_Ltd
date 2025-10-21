@@ -1,11 +1,12 @@
 import React from 'react'
 
-const App = () => {
+export const App = () => {
   return (
     <div>
- <div>hello world, my name is david and I' am 23 old aged thank</div>
+       <h1 className="text-3xl font-bold underline text-blue-500">
+      Hello world!
+    </h1>
     </div>
   )
 }
-
 export default App
