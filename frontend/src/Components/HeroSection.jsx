@@ -9,37 +9,37 @@ const HeroSection = () => {
     {
       id: 1,
       title: "Sustainable Farming",
-      highlight: "Superior Genetics.",
-      subtitle: "EverGro Communities",
+      highlight: "Driven by Superior Genetics",
+      subtitle: "Empowering Rural Communities",
       description:
-        "Promoting food security and empowering rural communities through ethical pork production and advanced breeding services in Rwanda",
+        "At Evergrow Farms, we’re revolutionizing pork production in Rwanda through ethical practices, superior breeding, and a deep commitment to food security and community empowerment.",
       image: "../public/Images/hero-image.png",
     },
     {
       id: 2,
-      title: "Delivering quality pork",
-      highlight: "from farm to table",
+      title: "Delivering Quality Pork",
+      highlight: "From Our Farm to Your Table",
       subtitle: "",
       description:
-        "Evergrow Farms produces clean, safe, and nutritious pork using modern processing standards — ensuring freshness, quality, and trust for every consumer.",
+        "We ensure clean, safe, and nutritious pork by maintaining modern processing standards — guaranteeing freshness, quality, and trust in every cut we produce.",
       image: "../public/Images/pork.png",
     },
     {
       id: 3,
-      title: "Empowering farmers",
-      highlight: "with knowledge that grows",
+      title: "Empowering Farmers",
+      highlight: "With Knowledge That Grows",
       subtitle: "",
       description:
-        "We train and mentor farmers with modern, practical techniques—turning passion into productivity and learning into lasting success.",
+        "Through hands-on training and expert mentorship, we equip farmers with modern, practical skills — transforming passion into productivity and knowledge into lasting success.",
       image: "../public/Images/traing.png",
     },
     {
       id: 4,
-      title: "Building stronger breeds",
-      highlight: "for a sustainable future",
+      title: "Building Stronger Breeds",
+      highlight: "For a Sustainable Future",
       subtitle: "",
       description:
-        "Through advanced breeding and superior genetics, we empower farmers to boost productivity, income, and resilience in livestock farming.",
+        "Our advanced breeding programs focus on superior genetics to enhance productivity, income, and resilience — supporting farmers in achieving long-term sustainability.",
       image: "../public/Images/semination.jpg",
     },
   ];
@@ -82,8 +82,8 @@ const HeroSection = () => {
               index === currentSlide
                 ? "opacity-100 translate-x-0"
                 : index < currentSlide
-                  ? "opacity-0 -translate-x-full"
-                  : "opacity-0 translate-x-full"
+                ? "opacity-0 -translate-x-full"
+                : "opacity-0 translate-x-full"
             }`}
           >
             <div className="absolute inset-0">
@@ -94,52 +94,40 @@ const HeroSection = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
             </div>
-            <div className="absolute inset-0 pointer-events-none opacity-20">
-              <svg className="absolute inset-0 h-full w-full" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <pattern id="diagonalLines" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-                    <line x1="0" y1="0" x2="40" y2="40" stroke="white" strokeWidth="0.5" />
-                  </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#diagonalLines)" />
-              </svg>
-            </div>
-            <div className="relative h-full flex items-center">
-              <div className="container mx-auto px-6 md:px-12 lg:px-20 xl:px-24">
-                <div className="max-w-4xl">
-                  <div className="mb-6 md:mb-8">
-                    <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[1.1] mb-3">
-                      {slide.title}
-                    </h1>
-                    {slide.highlight && (
-                      <h2 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-green-500 leading-[1.1] mb-3">
-                        {slide.highlight}
-                      </h2>
-                    )}
-                    {slide.subtitle && (
-                      <h3 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1]">
-                        {slide.subtitle}
-                      </h3>
-                    )}
-                  </div>
-                  <p className="text-lg md:text-xl lg:text-2xl text-white/95 mb-8 md:mb-10 max-w-3xl leading-relaxed font-light">
-                    {slide.description}
-                  </p>
-                  <div className="flex flex-wrap gap-4 md:gap-6">
-                    <button className="px-8 md:px-10 py-3 md:py-4 bg-green-500 hover:bg-green-600 text-white font-semibold text-base md:text-lg rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-green-500/50">
-                      Explore More
-                    </button>
-                    <button className="px-8 md:px-10 py-3 md:py-4 bg-transparent hover:bg-white/10 text-white font-semibold text-base md:text-lg rounded-lg border-2 border-white/80 transition-all duration-300 backdrop-blur-sm">
-                      Contact Us
-                    </button>
-                  </div>
+            <div className="relative h-full flex items-center ml-4 md:ml-12">
+              <div className="max-w-4xl">
+                <div className="mb-6 md:mb-8">
+                  <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] mb-3">
+                    {slide.title}
+                  </h1>
+                  {slide.highlight && (
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-green-500 leading-[1.1] mb-3">
+                      {slide.highlight}
+                    </h2>
+                  )}
+                  {slide.subtitle && (
+                    <h3 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1]">
+                      {slide.subtitle}
+                    </h3>
+                  )}
+                </div>
+                <p className="text-md md:text-lg lg:text-xl text-white/95 mb-8 md:mb-10 max-w-3xl leading-relaxed font-light">
+                  {slide.description}
+                </p>
+                <div className="flex flex-wrap gap-4 md:gap-6">
+                  <button className="px-8 md:px-10 py-3 md:py-4 bg-green-500 hover:bg-green-600 text-white font-semibold text-base md:text-lg rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-green-500/50">
+                    Explore More
+                  </button>
+                  <button className="px-8 md:px-10 py-3 md:py-4 bg-transparent hover:bg-white/10 text-white font-semibold text-base md:text-lg rounded-lg border-2 border-white/80 transition-all duration-300 backdrop-blur-sm">
+                    Contact Us
+                  </button>
                 </div>
               </div>
             </div>
           </div>
         ))}
       </div>
-      <div className="absolute right-6 md:right-10 top-1/2 -translate-y-1/2 flex flex-col gap-4 z-20">
+      <div className="absolute right-6 md:right-10 top-1/2 -translate-y-1/2 flex flex-col items-center gap-4 z-20">
         <button
           onClick={prevSlide}
           disabled={isAnimating}
@@ -171,6 +159,8 @@ const HeroSection = () => {
           />
         ))}
       </div>
+
+      {/* Slide Counter */}
       <div className="absolute bottom-8 md:bottom-12 right-6 md:right-10 z-20 text-white/80 text-sm md:text-base font-light tracking-wider">
         <span className="text-2xl md:text-3xl font-bold text-green-500">
           {String(currentSlide + 1).padStart(2, "0")}
