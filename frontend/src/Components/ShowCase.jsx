@@ -1,12 +1,19 @@
-"use client";
+"use client"
 
-import { useState } from "react";
-import { Target, Eye, Sprout, ArrowRight, Users, TrendingUp, Award } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { Target, Eye, Sprout, ArrowRight, Users, TrendingUp, Award } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { useState } from "react"
 
-function InteractiveCard({ icon: Icon, title, description, backIcon: BackIcon, backTitle, backDescription }) {
-  const [isFlipped, setIsFlipped] = useState(false);
+function InteractiveCard({
+  icon: Icon,
+  title,
+  description,
+  backIcon: BackIcon,
+  backTitle,
+  backDescription,
+}) {
+  const [isFlipped, setIsFlipped] = useState(false)
 
   return (
     <div
@@ -53,7 +60,7 @@ function InteractiveCard({ icon: Icon, title, description, backIcon: BackIcon, b
         </Card>
       </div>
     </div>
-  );
+  )
 }
 
 export default function Home() {
@@ -124,5 +131,5 @@ export default function Home() {
         </div>
       </section>
     </main>
-  );
+  )
 }
