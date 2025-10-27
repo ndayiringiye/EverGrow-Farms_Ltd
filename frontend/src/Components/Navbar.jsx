@@ -1,15 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ChevronDown, Search, Sun, Moon, User } from 'lucide-react';
+import { ChevronDown, Search,  User } from 'lucide-react';
 import { MdLogin } from "react-icons/md";
 import { LiaSignOutAltSolid } from "react-icons/lia";
+import AnimatedThemeToggler from "../Components/ui/animated-theme-toggler"
 export default function Header() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
-  };
+
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -51,14 +49,10 @@ export default function Header() {
 
           <div className="flex items-center gap-3">
             <button
-              onClick={toggleTheme}
+              
               className="w-9 h-9 flex items-center justify-center bg-white rounded-full hover:bg-gray-50 transition shadow-md"
             >
-              {isDarkMode ? (
-                <Sun className="text-gray-900" size={20} />
-              ) : (
-                <Moon className="text-gray-900" size={20} />
-              )}
+            <AnimatedThemeToggler />
             </button>
 
             <div className="relative" ref={dropdownRef}>
