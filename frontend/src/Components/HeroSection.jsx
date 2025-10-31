@@ -1,9 +1,26 @@
-import React, { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(
+    document.documentElement.classList.contains("dark")
+  );
+
+  // Detect theme change
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      setIsDarkMode(document.documentElement.classList.contains("dark"));
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   const slides = [
     {
@@ -68,12 +85,16 @@ const HeroSection = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       nextSlide();
-    }, 5000);
+    }, 6000);
     return () => clearInterval(timer);
   }, [nextSlide]);
 
   return (
-    <div className="relative h-screen w-full overflow-hidden bg-black">
+    <div
+      className={`relative h-screen w-full overflow-hidden mt-20 transition-colors duration-700 ${
+        isDarkMode ? "bg-slate-950" : "bg-white"
+      }`}
+    >
       <div className="relative h-full w-full">
         {slides.map((slide, index) => (
           <div
@@ -86,39 +107,73 @@ const HeroSection = () => {
                 : "opacity-0 translate-x-full"
             }`}
           >
+            {/* Background Image */}
             <div className="absolute inset-0">
               <img
                 src={slide.image}
                 alt={slide.title}
                 className="h-full w-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
+              <div
+                className={`absolute inset-0 transition-colors duration-500 ${
+                  isDarkMode
+                    ? "bg-gradient-to-r from-black/85 via-black/65 to-black/45"
+                    : "bg-gradient-to-r from-white/60 via-white/50 to-white/40"
+                }`}
+              />
             </div>
-            <div className="relative h-full flex items-center ml-4 md:ml-12">
-              <div className="max-w-4xl">
-                <div className="mb-6 md:mb-8">
-                  <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1] mb-3">
+
+            {/* Text content */}
+            <div className="relative h-full flex items-center px-4 sm:px-6 md:px-12">
+              <div
+                className={`max-w-3xl w-full backdrop-blur-md border rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10 shadow-2xl transition-all duration-500 ${
+                  isDarkMode
+                    ? "bg-white/10 border-white/20"
+                    : "bg-slate-100/70 border-slate-200/60"
+                }`}
+              >
+                <div className="mb-4 sm:mb-5 md:mb-6">
+                  <h1
+                    className={`text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight mb-2 ${
+                      isDarkMode ? "text-white" : "text-slate-900"
+                    }`}
+                  >
                     {slide.title}
                   </h1>
                   {slide.highlight && (
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-green-500 leading-[1.1] mb-3">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-green-500 leading-tight mb-2">
                       {slide.highlight}
                     </h2>
                   )}
                   {slide.subtitle && (
-                    <h3 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.1]">
+                    <h3
+                      className={`text-xl sm:text-2xl md:text-3xl font-bold leading-tight ${
+                        isDarkMode ? "text-white" : "text-slate-800"
+                      }`}
+                    >
                       {slide.subtitle}
                     </h3>
                   )}
                 </div>
-                <p className="text-md md:text-lg lg:text-xl text-white/95 mb-8 md:mb-10 max-w-3xl leading-relaxed font-light">
+                <p
+                  className={`text-sm sm:text-base md:text-lg mb-5 md:mb-6 leading-relaxed font-light transition-colors duration-300 ${
+                    isDarkMode ? "text-white/90" : "text-slate-800/90"
+                  }`}
+                >
                   {slide.description}
                 </p>
-                <div className="flex flex-wrap gap-4 md:gap-6">
-                  <button className="px-8 md:px-10 py-3 md:py-4 bg-green-500 hover:bg-green-600 text-white font-semibold text-base md:text-lg rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-green-500/50">
+
+                <div className="flex flex-wrap gap-3 sm:gap-4">
+                  <button className="px-6 sm:px-7 md:px-8 py-2.5 md:py-3 bg-green-500 hover:bg-green-600 text-white font-semibold text-sm sm:text-base rounded-lg transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-green-500/40">
                     Explore More
                   </button>
-                  <button className="px-8 md:px-10 py-3 md:py-4 bg-transparent hover:bg-white/10 text-white font-semibold text-base md:text-lg rounded-lg border-2 border-white/80 transition-all duration-300 backdrop-blur-sm">
+                  <button
+                    className={`px-6 sm:px-7 md:px-8 py-2.5 md:py-3 rounded-lg font-semibold text-sm sm:text-base border transition-all duration-300 backdrop-blur-sm ${
+                      isDarkMode
+                        ? "bg-white/10 hover:bg-white/15 text-white border-white/30"
+                        : "bg-white hover:bg-slate-100 text-slate-900 border-slate-300"
+                    }`}
+                  >
                     Contact Us
                   </button>
                 </div>
@@ -145,6 +200,7 @@ const HeroSection = () => {
           <ChevronRight className="w-7 h-7 text-white group-hover:scale-110 transition-transform" />
         </button>
       </div>
+
       <div className="absolute bottom-8 md:bottom-12 left-1/2 -translate-x-1/2 flex gap-3 z-20">
         {slides.map((_, index) => (
           <button
@@ -155,13 +211,15 @@ const HeroSection = () => {
                 ? "w-12 md:w-16 bg-green-500 shadow-lg shadow-green-500/50"
                 : "w-2.5 md:w-3 bg-white/50 hover:bg-white/80"
             }`}
-            aria-label={`Go to slide ${index + 1}`}
           />
         ))}
       </div>
 
-      {/* Slide Counter */}
-      <div className="absolute bottom-8 md:bottom-12 right-6 md:right-10 z-20 text-white/80 text-sm md:text-base font-light tracking-wider">
+      <div
+        className={`absolute bottom-8 md:bottom-12 right-6 md:right-10 z-20 text-sm md:text-base font-light tracking-wider ${
+          isDarkMode ? "text-white/80" : "text-slate-800/80"
+        }`}
+      >
         <span className="text-2xl md:text-3xl font-bold text-green-500">
           {String(currentSlide + 1).padStart(2, "0")}
         </span>
