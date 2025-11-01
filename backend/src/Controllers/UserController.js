@@ -3,7 +3,7 @@ import User from "../models/userModel.js";
 import generateToken from "../utils/generateToken.js";
 
 export const signup = async (req, res) => {
-  const { username, email, password, businesssector, address, profile } = req.body;
+  const { username, email, password, businesssector, address, image } = req.body;
 
   if (!username || !email || !password || !businesssector || !address) {
     return res.status(400).json({ message: 'Please enter all required fields' });
@@ -24,18 +24,20 @@ export const signup = async (req, res) => {
       password: hashedPassword,
       businesssector,
       address,
-      profile
+      image
     });
 
-    res.status(201).json({
-      _id: user._id,
-      username: user.username,
-      email: user.email,
-      businesssector: user.businesssector,
-      address: user.address,
-      profile: user.profile,
-      token: generateToken(user._id),
-    });
+   res.status(201).json({
+  _id: user._id,
+  username: user.username,
+  email: user.email,
+  businesssector: user.businesssector,
+  address: user.address,
+  image: user.image,
+  token: generateToken(user._id),
+  message: "User signed up successfully"
+});
+
 
   } catch (error) {
     res.status(500).json({ message: 'Server error during registration', error: error.message });
