@@ -1,18 +1,43 @@
-import Notification from "../models/notificationModel.js"
- const  createNotification = async (recipientId, message, type) => {
+import Notification from "../models/notificationModel.js";
+
+export const createNotification = async (req, res) => {
+    const { recipientId, message, type } = req.body;
+
     try {
-        const newNotification = new Notification({
+        const notif = await Notification.create({
             recipient: recipientId,
-            message: message,
-            type: type,
+            message,
+            type,
         });
 
-        await newNotification.save();
-        console.log(`Notification created for user ${recipientId}.`);
-        return newNotification;
-
+        res.status(201).json({ success: true, notif });
     } catch (error) {
-        console.error("Failed to save notification:", error);
+        res.status(500).json({ success: false, error: error.message });
     }
-}
-export default createNotification
+};
+
+export const getUserNotifications = async (req, res) => {
+    try {
+        const notifications = await Notification.find({
+            recipient: req.params.userId
+        }).sort({ createdAt: -1 });
+
+        res.json({ success: true, notifications });
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+};
+
+export const markNotificationRead = async (req, res) => {
+    try {
+        const notification = await Notification.findByIdAndUpdate(
+            req.params.notificationId,
+            { isRead: true },
+            { new: true }
+        );
+
+        res.json({ success: true, notification });
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+};
