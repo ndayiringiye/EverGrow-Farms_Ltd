@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import { connectDb } from "./Config/db.js";
 import userRoutes from "./routes/userRoutes.js";
+import notificationRoute from "./routes/notificationRoute.js"
 
 
 
@@ -13,7 +14,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use("/api/users", userRoutes); 
+app.use("/api/users", userRoutes);
+app.use("/api/notifications", notificationRoute);
 
 app.get("/", (req, res) => {
   res.send("Project set up");
