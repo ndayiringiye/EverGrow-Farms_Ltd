@@ -3,7 +3,7 @@ import { createNotification, getUserNotifications, markNotificationRead } from "
 
 const router = express.Router();
 
-router.post("/create", createNotification);
+router.post("/create/notification", createNotification);
 router.get("/:userId", getUserNotifications);
 router.patch("/:notificationId/mark-read", markNotificationRead);
 
