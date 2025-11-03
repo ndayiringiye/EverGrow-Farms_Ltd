@@ -133,7 +133,7 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-green-500/95 to-green-600/95 dark:from-slate-900/95 dark:to-slate-800/95 backdrop-blur-lg shadow-lg border-b border-white/10 dark:border-white/5 transition-colors duration-300">
       <div className="px-4 md:px-6 py-3 md:py-4">
         <div className="flex items-center justify-between">
-          {/* Logo */}
+
           <a href="/" className="text-white text-2xl font-bold italic tracking-wide hover:opacity-90 transition-opacity">
             logo
           </a>

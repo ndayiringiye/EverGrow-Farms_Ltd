@@ -107,7 +107,6 @@ const HeroSection = () => {
                 : "opacity-0 translate-x-full"
             }`}
           >
-            {/* Background Image */}
             <div className="absolute inset-0">
               <img
                 src={slide.image}
@@ -123,7 +122,6 @@ const HeroSection = () => {
               />
             </div>
 
-            {/* Text content */}
             <div className="relative h-full flex items-center px-4 sm:px-6 md:px-12">
               <div
                 className={`max-w-3xl w-full backdrop-blur-md border rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10 shadow-2xl transition-all duration-500 ${
