@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { useState } from "react"
 
-// ✅ Fix: Accept props properly
 function InteractiveCard({ icon: Icon, title, description, backIcon: BackIcon, backTitle, backDescription }) {
   const [isFlipped, setIsFlipped] = useState(false)
 
@@ -21,7 +20,6 @@ function InteractiveCard({ icon: Icon, title, description, backIcon: BackIcon, b
           isFlipped ? "rotate-y-180" : ""
         }`}
       >
-        {/* FRONT SIDE */}
         <Card className="absolute inset-0 border-2 border-primary/30 hover:border-primary/60 transition-all hover:shadow-xl backface-hidden">
           <CardContent className="p-4 sm:p-6 md:p-8 h-full flex flex-col">
             <div className="mb-4 sm:mb-6 inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-primary/10 animate-pulse-slow">
@@ -37,7 +35,6 @@ function InteractiveCard({ icon: Icon, title, description, backIcon: BackIcon, b
           </CardContent>
         </Card>
 
-        {/* BACK SIDE */}
         <Card className="absolute inset-0 border-2 border-accent/50 bg-accent/5 rotate-y-180 backface-hidden hover:shadow-xl">
           <CardContent className="p-4 sm:p-6 md:p-8 h-full flex flex-col">
             <div className="mb-4 sm:mb-6 inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-accent/20 animate-pulse-slow">
@@ -71,8 +68,6 @@ export default function Home() {
             empowerment
           </p>
         </div>
-
-        {/* ✅ Fix: Pass props correctly */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6 max-w-7xl mx-auto">
           <InteractiveCard
             icon={Target}

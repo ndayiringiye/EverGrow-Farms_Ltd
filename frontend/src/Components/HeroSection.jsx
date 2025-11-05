@@ -8,7 +8,6 @@ const HeroSection = () => {
     document.documentElement.classList.contains("dark")
   );
 
-  // Detect theme change
   useEffect(() => {
     const observer = new MutationObserver(() => {
       setIsDarkMode(document.documentElement.classList.contains("dark"));
