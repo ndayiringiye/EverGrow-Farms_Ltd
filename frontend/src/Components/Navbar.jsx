@@ -142,7 +142,7 @@ export default function Header() {
             <input
               type="text"
               placeholder="Search..."
-              className="w-full px-5 py-2.5 pr-12 rounded-full bg-white dark:bg-slate-700 text-gray-700 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-400 dark:focus:ring-green-500 shadow-md transition-all duration-300"
+              className="w-full px-5 py-2.5 pr-12 rounded-full bg-white dark:bg-slate-700 text-gray-700 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-400 dark:focus:ring-green-500 shadow-ls transition-all duration-300"
             />
             <div className="absolute right-4 top-1/2 -translate-y-1/2">
               <Search className="text-green-500 dark:text-green-400" size={20} />
@@ -151,7 +151,7 @@ export default function Header() {
           <div className="flex items-center gap-2 md:gap-3">
             <button
               onClick={toggleTheme}
-              className="w-10 h-10 flex items-center justify-center bg-white dark:bg-slate-700 rounded-full hover:bg-green-50 dark:hover:bg-slate-600 transition-all duration-300 shadow-md hover:scale-110"
+              className="w-10 h-10 flex items-center justify-center bg-white dark:bg-slate-700 rounded-full hover:bg-green-50 dark:hover:bg-slate-600 transition-all duration-300 shadow-ls hover:scale-110"
               aria-label="Toggle theme"
             >
               {isDarkMode ? (
@@ -164,7 +164,7 @@ export default function Header() {
             <div className="relative" ref={dropdownRef}>
               <button
                 onClick={toggleDropdown}
-                className="w-10 h-10 flex items-center justify-center bg-white dark:bg-slate-700 rounded-full hover:bg-gray-50 dark:hover:bg-slate-600 transition-all duration-300 shadow-md hover:scale-105 relative"
+                className="w-10 h-10 flex items-center justify-center bg-white dark:bg-slate-700 rounded-full hover:bg-gray-50 dark:hover:bg-slate-600 transition-all duration-300 shadow-ls hover:scale-105 relative"
                 aria-haspopup="menu"
                 aria-expanded={isDropdownOpen}
               >
@@ -178,7 +178,7 @@ export default function Header() {
                 )}
               </button>
               {isDropdownOpen && (
-                <div className="absolute right-0 mt-3 w-56 bg-white dark:bg-slate-800 rounded-xl shadow-2xl ring-1 ring-black/5 dark:ring-white/10 divide-y divide-gray-100 dark:divide-slate-700 z-50 overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
+                <div className="absolute right-0 mt-3 w-56 bg-white dark:bg-slate-800 rounded-xl shadow-ls ring-1 ring-black/5 dark:ring-white/10 divide-y divide-gray-100 dark:divide-slate-700 z-50 overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
                   <div className="px-4 py-3 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-slate-700 dark:to-slate-700">
                     <div className="font-semibold text-gray-900 dark:text-white">Bonnie Green</div>
                     <div className="text-sm text-gray-600 dark:text-gray-400 truncate">name@flowbite.com</div>
@@ -305,7 +305,7 @@ export default function Header() {
           </ul>
 
           <div className="flex gap-3">
-            <a href="/register" className="px-6 py-2.5 bg-white dark:bg-slate-700 text-gray-900 dark:text-white rounded-lg font-medium shadow-md transition-all duration-300 hover:bg-green-50 dark:hover:bg-slate-600 hover:scale-105 hover:shadow-lg">
+            <a href="/register" className="px-6 py-2.5 bg-white dark:bg-slate-700 text-gray-900 dark:text-white rounded-lg font-medium shadow-ls transition-all duration-300 hover:bg-green-50 dark:hover:bg-slate-600 hover:scale-105 hover:shadow-md">
               Register
             </a>
             <a href="/signin" className="px-6 py-2.5 text-white border-2 border-white dark:border-slate-600 rounded-lg font-medium transition-all duration-300 hover:bg-white hover:text-gray-900 dark:hover:bg-slate-700 dark:hover:border-slate-500 hover:scale-105 group">
