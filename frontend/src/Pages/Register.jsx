@@ -128,7 +128,7 @@ export default function Register() {
 
                             <div className='flex justify-center gap-x-6'>
                                 <div className="group animate-slideUp" style={{ animationDelay: '0.2s' }}>
-                                    <div className="relative mt-4">
+                                    <div className="relative">
                                         <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 w-5 h-5" />
                                         <input
                                             type="email"
@@ -141,35 +141,27 @@ export default function Register() {
                                     </div>
                                 </div>
 
-                                {/* Password Field */}
                                 <div className="group animate-slideUp" style={{ animationDelay: '0.3s' }}>
-                                    <label htmlFor="password" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2 transition-colors">
-                                        Password
-                                    </label>
                                     <div className="relative">
-                                        <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 w-5 h-5 transition-colors group-focus-within:text-green-500" />
+                                        <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 w-5 h-5" />
                                         <input
                                             type={showPassword ? "text" : "password"}
-                                            id="password"
                                             name="password"
                                             value={formData.password}
                                             onChange={handleChange}
-                                            placeholder="Create a strong password"
-                                            required
-                                            className="w-full pl-11 pr-12 py-3.5 border-b-2 border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-gray-900 dark:text-white rounded-xl focus:ring-2 focus:ring-green-500 focus:border-green-500 dark:focus:border-green-500 transition-all outline-none placeholder:text-gray-400 dark:placeholder:text-gray-500"
+                                            placeholder="Password"
+                                            className="w-full pl-11 pr-12 py-3 border-b border-gray-300 dark:border-slate-600 bg-transparent focus:border-green-500 outline-none transition-colors"
                                         />
+                                        <button
+                                            type="button"
+                                            onClick={() => setShowPassword(!showPassword)}
+                                            className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 hover:text-green-600 dark:hover:text-green-400 transition-colors"
+                                        >
+                                            {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                                        </button>
                                     </div>
-                                    <button
-                                        type="button"
-                                        onClick={() => setShowPassword(!showPassword)}
-                                        className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 hover:text-green-600 dark:hover:text-green-400 transition-colors"
-                                    >
-                                        {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
-                                    </button>
                                 </div>
                             </div>
-
-                            {/* Additional Options */}
                             <div className="flex items-center justify-between text-sm animate-fadeIn" style={{ animationDelay: '0.4s' }}>
                                 <button
                                     type="button"
@@ -314,7 +306,6 @@ export default function Register() {
                                 </div>
                             </div>
 
-                            {/* Phone Number */}
                             <div className="group">
                                 <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                                     Phone Number
@@ -332,8 +323,6 @@ export default function Register() {
                                     />
                                 </div>
                             </div>
-
-                            {/* Company */}
                             <div className="group">
                                 <label htmlFor="company" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                                     Company Name
